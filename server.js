@@ -1,39 +1,29 @@
-console.log("Web serverni boshlash");
-const express = require("express");
-const app = express();
+
 const http = require('http');
+const mongodb = require('mongodb');
 
-// 1 : Kirish code
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// 3 Views code
-app.set("views", "views");           
-app.set("view engine", "ejs");
+let db;
+const connectionString = "mongodb+srv://SHAWN:MASTERSHOX7057sh.@cluster0.gfp7li6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
-// 4 Routing code
-app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "success" });
+mongodb.connect(connectionString, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+},  (err, client)=> {
+if(err) {
+    console.log("ERROR on connection to DB");
+    }
+     else 
+     console.log("Connected to DB");
+   module.exports =client;
+   
+     const app = require('./app');
+     {const server = http.createServer(app);
+     let PORT = 3000;
+     server.listen(PORT, function () {
+     console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
 });
 
-app.get("/", (req, res) => {
-  res.render("reja"); 
-});
-
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(`The server is running successfully on port: ${PORT}, http://localhost:${PORT}`);
-});
-
-
-
-
-
-
-
-
-
-
+    }
+    
+})
