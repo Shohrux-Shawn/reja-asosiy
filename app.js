@@ -1,10 +1,10 @@
 console.log("Web serverni boshlash");
 const express = require("express");
+const res = require("express/lib/response");
 const app = express();
-const http = require('http');
 
 
-// MongoDB  connect
+//Mongodbni chaqirish
 const db = require("./server").db();
 
 
@@ -27,8 +27,9 @@ app.get("/", (req, res) => {
   res.render("reja"); 
 });
 
-
 module.exports = app;
+
+
 
 
 
