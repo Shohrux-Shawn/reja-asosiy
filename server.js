@@ -6,7 +6,6 @@ const mongodb = require("mongodb");
 let db;
 
 const connectionString = "mongodb+srv://SHAWN:MASTERSHOX7057sh.@cluster0.gfp7li6.mongodb.net/myDatabase?retryWrites=true&w=majority&appName=Cluster0";
-
 mongodb .connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
