@@ -1,3 +1,26 @@
+//B Task
+
+function countDigits(text) {
+    return (text.match(/\d/g) || []).length;
+}
+
+console.log(countDigits("ad2a54y79wet0sfgb9")); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // //Mini task
 // function countLetter(letter, word) {
 //   let count = 0;
