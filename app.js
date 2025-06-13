@@ -6,6 +6,7 @@ const app = express();
 
 //Mongodbni chaqirish
 const db = require("./server").db();
+const Mongodb = require("mongodb");
 
 
 // 1 : Kirish code
@@ -30,6 +31,21 @@ app.post("/create-item", (req, res) => {
   });
  
 });
+
+app.post("/delete-item", (req, res) => {
+  const id = req.body.id;
+
+  db.collection("plans").deleteOne(
+    { _id: new ObjectId(id) },
+    function (err, data) {
+      if (err) {
+        return res.status(500).json({ state: "error", message: err.message });
+      }
+      res.json({ state: "success" });
+    }
+  );
+});
+
 
 app.get("/", function (req, res)  {
   console.log("user entered /");
