@@ -1,10 +1,10 @@
 //B Task
 
-function countDigits(text) {
-    return (text.match(/\d/g) || []).length;
-}
+// function countDigits(text) {
+//     return (text.match(/\d/g) || []).length;
+// }
 
-console.log(countDigits("ad2a54y79wet0sfgb9")); 
+// console.log(countDigits("ad2a54y79wet0sfgb9")); 
 
 
 
