@@ -1,7 +1,32 @@
+//D task 
+
+
+function checkContent(str1, str2) {
+ 
+  const sorted1 = str1.split("").sort().join("");
+  const sorted2 = str2.split("").sort().join("");
+
+  return sorted1 === sorted2;
+}
+
+// Test
+console.log(checkContent("mitgroup", "gmtiprou")); 
+console.log(checkContent("nissan", "nssian"));       
+console.log(checkContent("undestand", "undjhajbofdef"));           
+
+
+
+
+
+
+//C task 
+
+
+const moment = require("moment"); 
 
 class Shop {
-  constructor(olma, osh, cola) {
-    this.piyoz = olma;
+  constructor(piyoz, osh, cola) {
+    this.piyoz = piyoz;
     this.osh = osh;
     this.cola = cola;
   }
@@ -29,15 +54,12 @@ class Shop {
   qabul(mahsulot, miqdor) {
     if (this[mahsulot] !== undefined) {
       this[mahsulot] += miqdor;
-      console.log(`${this.time()}
-       - Qabul qilindi: ${miqdor} ta ${mahsulot}`);
+      console.log(`${this.time()} - Qabul qilindi: ${miqdor} ta ${mahsulot}`);
     } else {
-      console.log(`${this.time()} 
-      - Bunday mahsulot yo'q: ${mahsulot}`);
+      console.log(`${this.time()} - Bunday mahsulot yo'q: ${mahsulot}`);
     }
   }
 }
-
 
 const dokon = new Shop(4, 5, 2); 
 
@@ -45,8 +67,6 @@ dokon.qoldiq();
 dokon.sotish("piyoz", 3);
 dokon.qabul("cola", 4);
 dokon.qoldiq();
-
-
 
 //B Task
 
