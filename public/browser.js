@@ -92,4 +92,4 @@ document.getElementById("create-form").addEventListener("submit", function(e) {
         .catch((err) => {
             console.log("Qaytadan harakat qiling");
         });
-    });
+    });    

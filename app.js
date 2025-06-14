@@ -64,7 +64,7 @@ app.post("/edit-item", (req, res) => {
       // Faqat bitta javob qaytariladi
       res.json({ state: "success" });
     }
-  );
+  );      
 });
 
 //delete all qism
