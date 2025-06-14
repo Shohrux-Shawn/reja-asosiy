@@ -1,3 +1,53 @@
+
+class Shop {
+  constructor(olma, osh, cola) {
+    this.piyoz = olma;
+    this.osh = osh;
+    this.cola = cola;
+  }
+
+  time() {
+    return moment().format("HH:mm");
+  }
+
+  qoldiq() {
+    console.log(
+      `Hozir ${this.time()} da ${this.piyoz} ta piyoz, ${this.osh} ta osh va ${this.cola} ta cola mavjud`
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] -= miqdor;
+      if (this[mahsulot] < 0) this[mahsulot] = 0;
+      console.log(`${this.time()} - Sotildi: ${miqdor} ta ${mahsulot}`);
+    } else {
+      console.log(`${this.time()} - Bunday mahsulot yo'q: ${mahsulot}`);
+    }
+  }
+
+  qabul(mahsulot, miqdor) {
+    if (this[mahsulot] !== undefined) {
+      this[mahsulot] += miqdor;
+      console.log(`${this.time()}
+       - Qabul qilindi: ${miqdor} ta ${mahsulot}`);
+    } else {
+      console.log(`${this.time()} 
+      - Bunday mahsulot yo'q: ${mahsulot}`);
+    }
+  }
+}
+
+
+const dokon = new Shop(4, 5, 2); 
+
+dokon.qoldiq();
+dokon.sotish("piyoz", 3);
+dokon.qabul("cola", 4);
+dokon.qoldiq();
+
+
+
 //B Task
 
 // function countDigits(text) {

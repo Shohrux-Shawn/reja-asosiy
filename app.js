@@ -24,19 +24,20 @@ app.post("/create-item", (req, res) => {
   console.log(req.body);
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
-   console.log(data.ops);
+  
     res.json(data.ops[0]);
 
     
   });
  
 });
-
+//delete qism
 app.post("/delete-item", (req, res) => {
   const id = req.body.id;
+  console.log(id);
 
   db.collection("plans").deleteOne(
-    { _id: new ObjectId(id) },
+    { _id: new Mongodb.ObjectId(id) },
     function (err, data) {
       if (err) {
         return res.status(500).json({ state: "error", message: err.message });
@@ -45,6 +46,48 @@ app.post("/delete-item", (req, res) => {
     }
   );
 });
+
+//edit qism
+app.post("/edit-item", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  db.collection("plans").findOneAndUpdate(
+    { _id: new Mongodb.ObjectId(data.id) },          // ID orqali topish
+    { $set: { reja: data.userInput } },              // yangi qiymatni o'rnatish
+    function (err, result) {
+      if (err) {
+        console.log("Xatolik:", err);
+        return res.status(500).json({ state: "error", message: err.message });
+      }
+
+      // Faqat bitta javob qaytariladi
+      res.json({ state: "success" });
+    }
+  );
+});
+
+//delete all qism
+
+app.post("/delete-all", (req, res) => {
+  if(req.body.delete_all){
+    db.collection("plans").deleteMany(function() {
+      res.json({ state: "all success deleted" });
+
+    });
+  
+    
+    
+  }
+  });
+
+
+
+
+
+
+
+
 
 
 app.get("/", function (req, res)  {
