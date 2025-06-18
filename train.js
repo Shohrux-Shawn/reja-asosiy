@@ -1,18 +1,32 @@
-//D task 
+//Task E
 
-
-function checkContent(str1, str2) {
- 
-  const sorted1 = str1.split("").sort().join("");
-  const sorted2 = str2.split("").sort().join("");
-
-  return sorted1 === sorted2;
+function getReverse(text) {
+  return text.split("").reverse().join("");
 }
 
-// Test
-console.log(checkContent("mitgroup", "gmtiprou")); 
-console.log(checkContent("nissan", "nssian"));       
-console.log(checkContent("undestand", "undjhajbofdef"));           
+let a = "salom";
+let natija = getReverse(a);
+console.log(getReverse("salom"));
+
+
+
+
+
+// //D task 
+
+
+// function checkContent(str1, str2) {
+ 
+//   const sorted1 = str1.split("").sort().join("");
+//   const sorted2 = str2.split("").sort().join("");
+
+//   return sorted1 === sorted2;
+// }
+
+// // Test
+// console.log(checkContent("mitgroup", "gmtiprou")); 
+// console.log(checkContent("nissan", "nssian"));       
+// console.log(checkContent("undestand", "undjhajbofdef"));           
 
 
 
